@@ -1,0 +1,12 @@
+name: nps-kelp
+title: nps-kelp
+username:
+account: ecoquants
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 838337
+bundleId: 1986343
+url: https://ecoquants.shinyapps.io/nps-kelp/
+when: 1554379936.32492
+asMultiple: FALSE
+asStatic: FALSE
