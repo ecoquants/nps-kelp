@@ -1,0 +1,36 @@
+---
+title: "NPS Kelp Monitoring"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    self_contained: false
+    lib_dir: "libs"
+---
+
+```{r}
+library(tidyverse)
+library(here)
+library(glue)
+library(DT)
+
+# paths
+data_spp_rds  <- here("app/data/KFM_1mQuadrat_Summary_1982-2017_SpeciesName.rds")
+
+
+fstr <- function(s){
+  s %>% 
+    str_replace_all(" ", "_") %>% 
+    str_replace_all("/", "_")
+}
+
+d <- read_rds(data_spp_rds) %>% 
+  group_by(island = IslandName, species = AlternateTaxonName) %>% 
+  summarize(
+    n_records = n()) %>% 
+  ungroup() %>% 
+  mutate(
+    plot = glue("<a href='./{fstr(island)}-{fstr(species)}.html'>plot</a>"))
+# View(d)
+
+datatable(d, escape = 4)
+```
