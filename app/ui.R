@@ -6,7 +6,7 @@ shinyUI(fluidPage(
     sidebarPanel(
       selectInput(
         "sel_island", "Island",
-        islands),
+        islands, multiple=T),
       selectInput(
         "sel_species", "Species",
         species)),

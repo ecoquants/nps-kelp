@@ -5,6 +5,8 @@ output:
     orientation: rows
     self_contained: false
     lib_dir: "libs"
+    navbar:
+      - { title: "Download", icon: "fa-download", href: "https://github.com/ecoquants/nps-kelp/archive/master.zip", align: right }    
 ---
 
 ```{r}
@@ -15,7 +17,6 @@ library(DT)
 
 # paths
 data_spp_rds  <- here("app/data/KFM_1mQuadrat_Summary_1982-2017_SpeciesName.rds")
-
 
 fstr <- function(s){
   s %>% 
@@ -29,8 +30,25 @@ d <- read_rds(data_spp_rds) %>%
     n_records = n()) %>% 
   ungroup() %>% 
   mutate(
-    plot = glue("<a href='./{fstr(island)}-{fstr(species)}.html'>plot</a>"))
+    protocol = "1m quadrat",
+    plot     = glue("<a href='./{fstr(island)}-{fstr(species)}.html'>plot</a>")) %>% 
+  select(protocol, species, island, n_records, plot)
 # View(d)
 
-datatable(d, escape = 4)
+#datatable(d, escape = 5)
 ```
+
+```{r}
+library(crosstalk)
+
+# Wrap data frame in SharedData
+sd <- SharedData$new(d)
+
+# Create a filter input
+filter_select("sel_protocol", "Protocol", sd, ~protocol)
+filter_select("sel_species", "Species", sd, ~species)
+filter_select("sel_island", "Island", sd, ~island)
+#filter_slider("mag", "Magnitude", sd, column=~mag, step=0.1, width=250)
+bscols(datatable(sd, escape = 4), device = "lg")
+```
+

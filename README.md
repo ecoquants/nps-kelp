@@ -2,7 +2,17 @@
 
 National Park Service Kelp Forest Monitoring visualization
 
-## Application
+## Static Reports
+
+### Generate Static Reports
+
+Run the following commands in the R console:
+
+1. `source("make_pages.R")` to generate all the island-species plots in seperate html pages
+
+2. `rmarkdown::render("docs/index.Rmd")` (or open `docs/index.Rmd` and Knit) to generate the default page with table to navigate island-species plot pages
+
+## Interactive Application
 
 You can check out the initial [Shiny](http://shiny.rstudio.com) app here:
 

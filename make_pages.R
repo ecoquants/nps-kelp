@@ -1,3 +1,4 @@
+# load packages
 library(tidyverse)
 library(here)
 library(glue)
@@ -57,5 +58,5 @@ make_page <- function(i){ # i=39
     output_file = html)
 }
 
-#walk(1:nrow(d), make_page)
-walk(39:nrow(d), make_page)
+walk(1:nrow(d), make_page)
+#walk(39:nrow(d), make_page)
