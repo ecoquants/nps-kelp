@@ -40,7 +40,7 @@ d <- read_rds(data_spp_rds) %>%
 stopifnot(nrow(d) > 0)
 
 # plot data ----
-theme_set(theme_cowplot(font_size=4)) # reduce default font size
+theme_set(theme_cowplot()) # font_size=4)) # reduce default font size
 
 g <- ggplot(d, aes(x = SurveyYear, y = MeanDensity_sqm, color = SiteCode, linetype = SiteCode)) +
   geom_point(size = 1, alpha = 0.7, show.legend = FALSE)+

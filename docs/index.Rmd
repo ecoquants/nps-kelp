@@ -45,9 +45,9 @@ library(crosstalk)
 sd <- SharedData$new(d)
 
 # Create a filter input
-filter_select("sel_protocol", "Protocol", sd, ~protocol)
-filter_select("sel_species", "Species", sd, ~species)
-filter_select("sel_island", "Island", sd, ~island)
+filter_select("sel_protocol", "protocol", sd, ~protocol)
+filter_select("sel_species", "species", sd, ~species)
+filter_select("sel_island", "island", sd, ~island)
 #filter_slider("mag", "Magnitude", sd, column=~mag, step=0.1, width=250)
 bscols(datatable(sd, escape = 4), device = "lg")
 ```

@@ -7,7 +7,7 @@
 #'
 #' @examples
 plot_kfm_timeseries <- function(d, sp){
-  theme_set(theme_cowplot(font_size=4)) # reduce default font size
+  theme_set(theme_cowplot()) # font_size=4)) # reduce default font size
   
   #browser()
   

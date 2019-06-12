@@ -9,7 +9,7 @@ data_csv      <- here("app/data/KFM_1mQuadrat_Summary_1982-2017.txt")
 spp_csv       <- here("app/data/KFM_SpeciesName.txt")
 data_spp_rds  <- here("app/data/KFM_1mQuadrat_Summary_1982-2017_SpeciesName.rds")
 
-if (!file.exists(data_spp_csv)){
+if (!file.exists(data_spp_rds)){
   
   # This table is needed to get the sub categories of species such as adult, juvinile
   sppNames <- read_csv(spp_csv)
