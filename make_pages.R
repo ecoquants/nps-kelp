@@ -47,7 +47,7 @@ make_page <- function(i){ # i=39
       str_replace_all(" ", "_") %>% 
       str_replace_all("/", "_")
   }
-  html    <- here(glue("docs/{fstr(island)}-{fstr(species)}.html"))
+  html    <- here(glue("docs/spp-islands/{fstr(island)}-{fstr(species)}.html"))
   message(glue("{species} at {island} -> \n  {html}"))
 
   rmarkdown::render(
